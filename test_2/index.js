@@ -12,15 +12,15 @@
  * @returns  {Object[]}
  */
 module.exports = function test2() {
-  let results = require("./test_data.json");
-  //this reads the json file and stores it in the results variable
-  results.forEach((item) => {
-    //this loops through the results array and assigns the item variable to each object in the array
-    item.example = `${item.first_name} ${item.last_name} says ${item.catchphrase}`;
-    //this adds a new property "example" to the item object and assigns it a value that is a string that combines the first_name, last_name, and catchphrase properties
-  });
-  results = results.filter((item) => {
+
+  const test_1 = require("../test_1/index.js");
+  //this imports the test_1 function from the relative path of the index.js file and creates a new variable called test_1
+  const data = new test_1();
+  //this creates a new variable called data and assigns it the return value of the test_1 function.
+
+  results = data.filter((item) => {
     //this loop is to filter the results array and only return the objects where the last_name property is "Simpson"
-    return item.last_name === "Simpson";
+    item.last_name === "Simpson";
   });
+  return results;
 };
