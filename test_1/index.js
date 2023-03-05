@@ -11,10 +11,12 @@
  * @returns  {Object[]}
  */
 module.exports = function test1() {
-  let results;
-
-  // Write your code here.  The pre-written lines above and below are just suggestions, feel free to delete
-  // them and start fresh.
-
+  let results = require("./test_data.json");
+  //this reads the json file and stores it in the results variable
+  results.forEach((item) => {
+    //this loops through the results array and assigns the item variable to each object in the array
+    item.example = `${item.first_name} ${item.last_name} says ${item.catchphrase}`;
+    //this adds a new property "example" to the item object and assigns it a value that is a string that combines the first_name, last_name, and catchphrase properties
+  });
   return results;
 };
