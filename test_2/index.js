@@ -12,15 +12,19 @@
  * @returns  {Object[]}
  */
 module.exports = function test2() {
-
-  const test_1 = require("../test_1/index.js");
-  //this imports the test_1 function from the relative path of the index.js file and creates a new variable called test_1
-  const data = new test_1();
-  //this creates a new variable called data and assigns it the return value of the test_1 function.
-
-  results = data.filter((item) => {
-    //this loop is to filter the results array and only return the objects where the last_name property is "Simpson"
-    item.last_name === "Simpson";
-  });
-  return results;
+  let results= [];
+  //this creates an empty array to store the results
+  let data = require("./test_data.json");
+  //this reads the json file and stores it in the data variable
+  for (var i=0;i<data.length;i++) {
+    //this loops through the results array and assigns the item variable to each object in the array
+    var item = data[i];
+    //grabs the object at the current index
+    if (item.last_name == "Simpson") {
+    item.example = `${item.first_name} ${item.last_name} says ${item.catchphrase}`;
+    //checks if the lastname property is equal to "Simpson" and if it is, it adds a new property "example" to the item object and assigns it a value that is a string that combines the first_name, last_name, and catchphrase properties
+    results.push(item);
+    //this pushes the item object into the results array
+}};
+return results;
 };
